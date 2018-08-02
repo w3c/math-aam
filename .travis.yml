@@ -19,7 +19,7 @@ script:
   - mkdir gh-pages
   - cd gh-pages
   - git clone --depth=1 --branch=gh-pages https://github.com/w3c/math-aam.git
-  - cd aria
+  - cd math-aam
   - curl https://labs.w3.org/spec-generator/?type=respec"&"url=https://rawgit.com/w3c/math-aam/master/index.html -o index.html -f  --retry 3
 
 after_success:
