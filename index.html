@@ -1,0 +1,443 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="generator" content="ReSpec 22.3.4"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Math Accessibility API Mappings 1.0</title>
+    
+	
+	
+    
+	<link href="common/css/common.css" rel="stylesheet" type="text/css">
+  <style id="respec-mainstyle">/*****************************************************************
+ * ReSpec 3 CSS
+ * Robin Berjon - http://berjon.com/
+ *****************************************************************/
+
+/* Override code highlighter background */
+.hljs {
+  background: transparent !important;
+}
+
+/* --- INLINES --- */
+h1 abbr,
+h2 abbr,
+h3 abbr,
+h4 abbr,
+h5 abbr,
+h6 abbr,
+a abbr {
+  border: none;
+}
+
+dfn {
+  font-weight: bold;
+}
+
+a.internalDFN {
+  color: inherit;
+  border-bottom: 1px solid #99c;
+  text-decoration: none;
+}
+
+a.externalDFN {
+  color: inherit;
+  border-bottom: 1px dotted #ccc;
+  text-decoration: none;
+}
+
+a.bibref {
+  text-decoration: none;
+}
+
+#references :target {
+  background: #eaf3ff;
+}
+
+cite .bibref {
+  font-style: normal;
+}
+
+code {
+  color: #c83500;
+}
+
+th code {
+  color: inherit;
+}
+
+/* --- TOC --- */
+
+.toc a,
+.tof a {
+  text-decoration: none;
+}
+
+a .secno,
+a .figno {
+  color: #000;
+}
+
+ul.tof,
+ol.tof {
+  list-style: none outside none;
+}
+
+.caption {
+  margin-top: 0.5em;
+  font-style: italic;
+}
+
+/* --- TABLE --- */
+
+table.simple {
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-bottom: 3px solid #005a9c;
+}
+
+.simple th {
+  background: #005a9c;
+  color: #fff;
+  padding: 3px 5px;
+  text-align: left;
+}
+
+.simple th[scope="row"] {
+  background: inherit;
+  color: inherit;
+  border-top: 1px solid #ddd;
+}
+
+.simple td {
+  padding: 3px 10px;
+  border-top: 1px solid #ddd;
+}
+
+.simple tr:nth-child(even) {
+  background: #f0f6ff;
+}
+
+/* --- DL --- */
+
+.section dd > p:first-child {
+  margin-top: 0;
+}
+
+.section dd > p:last-child {
+  margin-bottom: 0;
+}
+
+.section dd {
+  margin-bottom: 1em;
+}
+
+.section dl.attrs dd,
+.section dl.eldef dd {
+  margin-bottom: 0;
+}
+
+#issue-summary > ul,
+.respec-dfn-list {
+  column-count: 2;
+}
+
+#issue-summary li,
+.respec-dfn-list li {
+  list-style: none;
+}
+
+details.respec-tests-details {
+  margin-left: 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+details.respec-tests-details > * {
+  padding-right: 2em;
+}
+
+details.respec-tests-details[open] {
+  z-index: 999999;
+  position: absolute;
+  border: thin solid #cad3e2;
+  border-radius: 0.3em;
+  background-color: white;
+  padding-bottom: 0.5em;
+}
+
+details.respec-tests-details[open] > summary {
+  border-bottom: thin solid #cad3e2;
+  padding-left: 1em;
+  margin-bottom: 1em;
+  line-height: 2em;
+}
+
+details.respec-tests-details > ul {
+  width: 100%;
+  margin-top: -0.3em;
+}
+
+details.respec-tests-details > li {
+  padding-left: 1em;
+}
+
+@media print {
+  .removeOnSave {
+    display: none;
+  }
+}
+</style><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/cg-draft"><link rel="canonical" href="https://www.w3.org/TR/math-aam-1.0/"><script id="initialUserConfig" type="application/json">{
+  "specStatus": "CG-DRAFT",
+  "shortName": "math-aam-1.0",
+  "editors": [
+    {
+      "name": "Joanmarie Diggs",
+      "company": "Igalia, S.L.",
+      "companyURL": "https://www.igalia.com",
+      "w3cid": 68182
+    },
+    {
+      "name": "Michael Cooper",
+      "company": "W3C",
+      "companyURL": "http://www.w3.org",
+      "w3cid": 34017
+    }
+  ],
+  "copyrightStart": "2018",
+  "edDraftURI": "https://w3c.github.io/math-aam/",
+  "wg": "Getting Math onto Web Pages Community Group",
+  "wgURI": "https://www.w3.org/community/mathonwebpages/",
+  "wgPublicList": "public-mathonwebpages",
+  "localBiblio": {
+    "ACCNAME-AAM": {
+      "aliasOf": "ACCNAME-AAM-1.1"
+    },
+    "ARIA-PRACTICES": {
+      "aliasOf": "WAI-ARIA-PRACTICES-1.1"
+    },
+    "CORE-AAM": {
+      "aliasOf": "CORE-AAM-1.1"
+    },
+    "DPUB-ARIA": {
+      "aliasOf": "DPUB-ARIA-1.0"
+    },
+    "GRAPHICS-ARIA": {
+      "aliasOf": "GRAPHICS-ARIA-1.0"
+    },
+    "GRAPHICS-AAM": {
+      "aliasOf": "GRAPHICS-AAM-1.0"
+    },
+    "EPUB-Content": {
+      "href": "http://www.idpf.org/epub/31/spec/epub-contentdocs.html",
+      "title": "EPUB Content Documents 3.1",
+      "publisher": "IDPF"
+    },
+    "HTML-AAM": {
+      "aliasOf": "HTML-AAM-1.0"
+    },
+    "SVG-AAM": {
+      "aliasOf": "SVG-AAM-1.0"
+    },
+    "SVG1": {
+      "aliasOf": "SVG"
+    },
+    "WAI-ARIA": {
+      "aliasOf": "WAI-ARIA-1.1"
+    }
+  },
+  "ariaSpecURLs": {
+    "ED": "https://w3c.github.io/aria/",
+    "WD": "https://www.w3.org/TR/wai-aria-1.2/",
+    "FPWD": "https://www.w3.org/TR/wai-aria-1.2/",
+    "CR": "https://www.w3.org/TR/wai-aria-1.2/",
+    "PR": "https://www.w3.org/TR/wai-aria-1.2/",
+    "REC": "https://www.w3.org/TR/wai-aria-1.2/"
+  },
+  "coreMappingURLs": {
+    "ED": "https://w3c.github.io/core-aam/",
+    "WD": "https://www.w3.org/TR/core-aam-1.2/",
+    "FPWD": "https://www.w3.org/TR/core-aam-1.2/",
+    "CR": "https://www.w3.org/TR/core-aam-1.2/",
+    "PR": "https://www.w3.org/TR/core-aam-1.2/",
+    "REC": "https://www.w3.org/TR/core-aam-1.2/"
+  },
+  "preProcess": [
+    null
+  ],
+  "publishISODate": "2018-08-02T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 02 August 2018"
+}</script><meta name="description" content="This is a proposed set of mappings between WAI-ARIA Math Module features and platform accessibility APIs to support accessibility of Math content."></head>
+  <body class="h-entry"><div class="head">
+  <a href="https://www.w3.org/" class="logo">
+      <img alt="W3C" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72" height="48">
+  </a>
+  <h1 class="title p-name" id="title">Math Accessibility <abbr title="Application Programming Interfaces">API</abbr> Mappings 1.0</h1>
+  
+  <h2 id="draft-community-group-report-02-august-2018">Draft Community Group Report <time class="dt-published" datetime="2018-08-02">02 August 2018</time></h2>
+  <dl>
+    
+    
+    <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/math-aam/">https://w3c.github.io/math-aam/</a></dd>
+    
+    
+    
+    
+    
+    <dt>Editors:</dt>
+    <dd class="p-author h-card vcard" data-editor-id="68182"><span class="p-name fn">Joanmarie Diggs</span> (<a class="p-org org h-org h-card" href="https://www.igalia.com">Igalia, S.L.</a>)</dd><dd class="p-author h-card vcard" data-editor-id="34017"><span class="p-name fn">Michael Cooper</span> (<a class="p-org org h-org h-card" href="http://www.w3.org">W3C</a>)</dd>
+    
+    
+    
+  </dl>
+  
+  <p class="copyright">
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©
+    2018
+    the Contributors to the Math Accessibility <abbr title="Application Programming Interfaces">API</abbr> Mappings 1.0 Specification, published by the
+    <a href="https://www.w3.org/community/mathonwebpages/">Getting Math onto Web Pages Community Group</a> under the
+    <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>.
+      A human-readable <a href="https://www.w3.org/community/about/agreements/cla-deed/">summary</a> is available.
+    
+  </p>
+  <hr title="Separator for header">
+</div>
+    <section id="abstract" class="introductory"><h2 id="abstract-0">Abstract</h2>
+    	<p>This is a proposed set of mappings between <abbr title="Accessible Rich Internet Application">WAI-ARIA</abbr> Math Module features and platform accessibility APIs to support accessibility of Math content.</p>
+    </section>
+    <section id="sotd" class="introductory"><h2 id="status-of-this-document">Status of This Document</h2><p>
+  This specification was published by the <a href="https://www.w3.org/community/mathonwebpages/">Getting Math onto Web Pages Community Group</a>.
+  It is not a W3C Standard nor is it on the W3C Standards Track.
+  
+    Please note that under the
+    <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
+    there is a limited opt-out and other conditions apply.
+  
+  Learn more about
+  <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
+</p><p>If you wish to make comments regarding this document, please send them to
+    <a href="mailto:public-mathonwebpages@w3.org">public-mathonwebpages@w3.org</a>
+    (<a href="mailto:public-mathonwebpages-request@w3.org?subject=subscribe">subscribe</a>,
+    <a href="https://lists.w3.org/Archives/Public/public-mathonwebpages/">archives</a>).</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a href="#introduction" class="tocxref"><span class="secno">1. </span>Introduction</a></li><li class="tocline"><a href="#terms" class="tocxref"><span class="secno">2. </span>Important Terms</a></li><li class="tocline"><a href="#acknowledgements" class="tocxref"><span class="secno">A. </span>Acknowledgements</a><ol class="toc"><li class="tocline"><a href="#participants-of-the-getting-math-onto-web-pages-community-group-who-contributed-to-this-document" class="tocxref"><span class="secno">A.1 </span>Participants of the Getting Math onto Web Pages Community Group who contributed to this document</a></li><li class="tocline"><a href="#other-commenters-and-contributors-to-this-document" class="tocxref"><span class="secno">A.2 </span>Other commenters and contributors to this document</a></li></ol></li><li class="tocline"><a href="#references" class="tocxref"><span class="secno">B. </span>References</a><ol class="toc"><li class="tocline"><a href="#informative-references" class="tocxref"><span class="secno">B.1 </span>Informative references</a></li></ol></li></ol></nav>
+
+    <section id="introduction">
+      <!--OddPage--><h2 id="x1-introduction"><span class="secno">1. </span>Introduction</h2>
+    </section>
+  	<section class="informative" id="terms">
+  		<!--OddPage--><h2 id="x2-important-terms"><span class="secno">2. </span>Important Terms</h2><p><em>This section is non-normative.</em></p>
+  		<div data-oninclude="restrictReferences"><p>While some terms are defined in place, the following definitions are used throughout this document. </p>
+<dl class="termlist">
+    
+    
+    
+    
+    
+    
+    
+    
+	
+    
+	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </dl>
+</div>
+  	</section>
+  	<section class="appendix" id="acknowledgements">
+  		<!--OddPage--><h2 id="a-acknowledgements"><span class="secno">A. </span>Acknowledgements</h2>
+  		<section id="participants-of-the-getting-math-onto-web-pages-community-group-who-contributed-to-this-document">
+  			<h3 id="a-1-participants-of-the-getting-math-onto-web-pages-community-group-who-contributed-to-this-document"><span class="secno">A.1 </span>Participants of the Getting Math onto Web Pages Community Group who contributed to this document</h3>
+  		</section>
+  		<section id="other-commenters-and-contributors-to-this-document">
+  			<h3 id="a-2-other-commenters-and-contributors-to-this-document"><span class="secno">A.2 </span>Other commenters and contributors to this document</h3>
+  		</section>
+  	</section>
+  
+
+<section id="references" class="appendix">
+      <!--OddPage--><h2 id="b-references"><span class="secno">B. </span>References</h2>
+      
+    <section id="informative-references">
+        <h3 id="b-1-informative-references"><span class="secno">B.1 </span>Informative references</h3>
+      <dl class="bibliography">
+        <dt id="bib-at-spi">[AT-SPI]</dt><dd><a href="https://developer.gnome.org/libatspi/stable/"><cite>Assistive Technology Service Provider Interface</cite></a>.  The GNOME Project. URL: <a href="https://developer.gnome.org/libatspi/stable/">https://developer.gnome.org/libatspi/stable/</a></dd><dt id="bib-atk">[ATK]</dt><dd><a href="https://developer.gnome.org/atk/stable/"><cite>ATK - Accessibility Toolkit</cite></a>.  The GNOME Project. URL: <a href="https://developer.gnome.org/atk/stable/">https://developer.gnome.org/atk/stable/</a></dd><dt id="bib-axapi">[AXAPI]</dt><dd><a href="https://developer.apple.com/documentation/appkit/nsaccessibility"><cite>The NSAccessibility Protocol for macOS</cite></a>.  Apple, Inc. URL: <a href="https://developer.apple.com/documentation/appkit/nsaccessibility">https://developer.apple.com/documentation/appkit/nsaccessibility</a></dd><dt id="bib-core-aam-1.1">[CORE-AAM-1.1]</dt><dd><a href="https://www.w3.org/TR/core-aam-1.1/"><cite>Core Accessibility API Mappings 1.1</cite></a>. Joanmarie Diggs; Joseph Scheuhammer; Richard Schwerdtfeger; Michael Cooper; Andi Snow-Weaver; Aaron Leventhal. W3C. 14 December 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/core-aam-1.1/">https://www.w3.org/TR/core-aam-1.1/</a></dd><dt id="bib-iaccessible2">[IAccessible2]</dt><dd><a href="https://www.linuxfoundation.org/collaborate/workgroups/accessibility/iaccessible2"><cite>IAccessible2</cite></a>.  Linux Foundation. URL: <a href="https://www.linuxfoundation.org/collaborate/workgroups/accessibility/iaccessible2">https://www.linuxfoundation.org/collaborate/workgroups/accessibility/iaccessible2</a></dd><dt id="bib-msaa">[MSAA]</dt><dd><a href="https://msdn.microsoft.com/en-us/library/ms697707.aspx"><cite>Microsoft Active Accessibility (MSAA) 2.0</cite></a>.  Microsoft Corporation. URL: <a href="https://msdn.microsoft.com/en-us/library/ms697707.aspx">https://msdn.microsoft.com/en-us/library/ms697707.aspx</a></dd><dt id="bib-ui-automation">[UI-AUTOMATION]</dt><dd><a href="https://msdn.microsoft.com/en-us/library/ee684009%28v=vs.85%29.aspx"><cite>UI Automation</cite></a>.  Microsoft Corporation. URL: <a href="https://msdn.microsoft.com/en-us/library/ee684009%28v=vs.85%29.aspx">https://msdn.microsoft.com/en-us/library/ee684009%28v=vs.85%29.aspx</a></dd><dt id="bib-uia-express">[UIA-EXPRESS]</dt><dd><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd561898%28v=vs.85%29.aspx"><cite>The IAccessibleEx Interface</cite></a>.  Microsoft Corporation. URL: <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd561898%28v=vs.85%29.aspx">https://msdn.microsoft.com/en-us/library/windows/desktop/dd561898%28v=vs.85%29.aspx</a></dd><dt id="bib-wcag21">[WCAG21]</dt><dd><a href="https://www.w3.org/TR/WCAG21/"><cite>Web Content Accessibility Guidelines (WCAG) 2.1</cite></a>. Andrew Kirkpatrick; Joshue O Connor; Alastair Campbell; Michael Cooper. W3C. 5 June 2018. W3C Recommendation. URL: <a href="https://www.w3.org/TR/WCAG21/">https://www.w3.org/TR/WCAG21/</a></dd>
+      </dl></section></section><p role="navigation" id="back-to-top"><a href="#title"><abbr title="Back to Top">↑</abbr></a></p><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body></html>
