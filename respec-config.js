@@ -23,8 +23,6 @@ var respecConfig = {
 	wgURI:        "https://www.w3.org/community/mathonwebpages/",
 	wgPublicList: "public-mathonwebpages",
 
-	localBiblio: biblio,
-	
     // Spec URLs
     ariaSpecURLs: {
       "ED": "https://w3c.github.io/aria/",
