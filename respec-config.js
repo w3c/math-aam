@@ -1,4 +1,6 @@
 var respecConfig = {
+	github: "w3c/math-aam",
+	doJsonLd: true,
 	specStatus: "CG-DRAFT",
 	shortName: "math-aam-1.0",
 	editors: [
